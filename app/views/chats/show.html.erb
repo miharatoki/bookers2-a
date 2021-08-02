@@ -1,0 +1,14 @@
+<h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+<div class="message">
+ <% @chats.each do |chat| %>
+   <div>
+     <%= chat.message %> 
+   </div>
+ <% end %>
+</div>
+<div class="chat-form">
+  <%= form_with model: @chat do |f| %>
+    <%= f.text_field :message %>
+    <%= f.hidden_field :room_id %>
+  <% end %>
+</div>
